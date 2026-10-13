@@ -1,0 +1,1056 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本Plan | 关西之旅 2026</title>
+<style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface2: #f1f3f8;
+  --accent: #e8913a;
+  --accent2: #dc3545;
+  --accent3: #2b7de9;
+  --text: #1a1a2e;
+  --text2: #6c757d;
+  --border: #e2e5ef;
+  --card-shadow: 0 2px 12px rgba(0,0,0,.06);
+  --radius: 14px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: -apple-system, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fff8f0 0%, #eef2ff 50%, #f0f4ff 100%);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(232,145,58,.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(43,125,233,.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 40%, rgba(220,53,69,.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; padding: 2rem; }
+.hero-badge {
+  display: inline-block;
+  padding: .35em 1.2em;
+  border-radius: 999px;
+  background: rgba(232,145,58,.12);
+  color: var(--accent);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  margin-bottom: .5rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text2);
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+}
+.stat-chip {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: .88rem;
+  box-shadow: var(--card-shadow);
+}
+.stat-chip .icon { font-size: 1.1rem; }
+
+/* Route strip */
+.route-strip {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: .85rem 1.5rem;
+  overflow-x: auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.route-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: max-content;
+  margin: 0 auto;
+  font-size: .85rem;
+  color: var(--text2);
+}
+.route-dot .name { color: var(--text); font-weight: 600; }
+.route-arrow { color: var(--accent); }
+
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,249,251,.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav a {
+  padding: .85rem .95rem;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: .84rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: .2s;
+}
+.nav a:hover, .nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Sections */
+.section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.section-title .emoji { font-size: 1.35rem; }
+.section-badge {
+  display: inline-block;
+  padding: .12em .6em;
+  border-radius: 4px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  margin-left: .5rem;
+  vertical-align: middle;
+}
+.badge-p0 { background: rgba(220,53,69,.12); color: #dc3545; }
+.badge-p1 { background: rgba(232,145,58,.15); color: var(--accent); }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--card-shadow);
+}
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: .75rem;
+  color: var(--accent);
+}
+
+/* Day timeline */
+.day-block {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--border);
+}
+.day-block::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232,145,58,.15);
+}
+.day-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  color: var(--accent);
+}
+.day-subtitle {
+  font-size: .9rem;
+  color: var(--text2);
+  margin-bottom: 1rem;
+}
+.day-activities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.day-activities li {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .92rem;
+}
+.day-activities li::before {
+  content: "→";
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.day-note {
+  margin-top: .75rem;
+  padding: .55rem .9rem;
+  background: var(--surface2);
+  border-radius: 8px;
+  font-size: .85rem;
+  color: var(--text2);
+}
+.day-note::before { content: "📌 "; }
+
+/* Table styles */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .87rem;
+}
+thead { background: var(--surface2); }
+th, td {
+  padding: .65rem .85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th { font-weight: 600; color: var(--accent); white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(0,0,0,.015); }
+
+/* Lists */
+.req-list { list-style: none; padding: 0; }
+.req-list li {
+  padding: .45rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: .9rem;
+}
+.req-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: 700;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: .25rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: .45rem .95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text2);
+  cursor: pointer;
+  font-size: .83rem;
+  font-weight: 500;
+  transition: .2s;
+}
+.tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Flight items */
+.flight-options { display: grid; gap: .45rem; }
+.flight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .55rem .85rem;
+  background: var(--surface2);
+  border-radius: 8px;
+  font-size: .84rem;
+}
+.flight-item .time { color: var(--text); font-weight: 500; }
+.flight-item .price { color: var(--accent); font-weight: 700; }
+.flight-item .app { color: var(--text2); font-size: .76rem; }
+
+/* Checklist */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .85rem;
+}
+.checklist-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--card-shadow);
+}
+.checklist-card h4 { font-size: .95rem; margin-bottom: .4rem; color: var(--accent); }
+.checklist-card p { font-size: .84rem; color: var(--text2); margin-bottom: .2rem; }
+
+/* Outfit */
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .85rem;
+}
+.outfit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+.outfit-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: .25rem; }
+.outfit-desc { font-size: .84rem; color: var(--text2); }
+
+/* Map links */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .25em .7em;
+  border-radius: 6px;
+  background: rgba(43,125,233,.08);
+  color: var(--accent3);
+  font-size: .8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: .2s;
+  margin: .2rem .2rem .2rem 0;
+}
+.map-link:hover { background: rgba(43,125,233,.15); color: var(--accent3); }
+.map-link .ml { font-size: .85rem; }
+.map-group { margin: .6rem 0; display: flex; flex-wrap: wrap; gap: .15rem; }
+.map-label { font-size: .8rem; color: var(--text2); margin-bottom: .3rem; font-weight: 500; }
+
+/* Hotel */
+.hotel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  margin-bottom: .65rem;
+  box-shadow: var(--card-shadow);
+}
+.hotel-name { font-weight: 600; font-size: .98rem; color: var(--accent); margin-bottom: .25rem; }
+.hotel-email { font-size: .84rem; color: var(--accent3); margin-bottom: .2rem; word-break: break-all; }
+.hotel-info { font-size: .82rem; color: var(--text2); line-height: 1.55; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text2);
+  font-size: .78rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .section { padding: 2rem 1rem; }
+  .hero { min-height: 50vh; }
+  .hero-stats { flex-direction: column; align-items: center; }
+  th, td { padding: .45rem .55rem; font-size: .78rem; }
+  .outfit-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">🇯🇵 关西之旅</span>
+    <h1>日本Plan</h1>
+    <p>有人要去日本玩——关西篇</p>
+    <div class="hero-stats">
+      <span class="stat-chip"><span class="icon">📅</span> 11.25 – 12.1</span>
+      <span class="stat-chip"><span class="icon">🗺️</span> 7天行程</span>
+      <span class="stat-chip"><span class="icon">💴</span> 交通约 ¥1,200</span>
+      <span class="stat-chip"><span class="icon">✈️</span> 机票 ~¥3,000</span>
+    </div>
+  </div>
+</header>
+
+<!-- Route strip -->
+<div class="route-strip">
+  <div class="route-strip-inner">
+    <span class="route-dot"><span class="name">广州</span></span>
+    <span class="route-arrow">→</span>
+    <span class="route-dot"><span class="name">大阪</span></span>
+    <span class="route-arrow">→</span>
+    <span class="route-dot"><span class="name">京都</span></span>
+    <span class="route-arrow">→</span>
+    <span class="route-dot"><span class="name">USJ</span></span>
+    <span class="route-arrow">→</span>
+    <span class="route-dot"><span class="name">东京</span></span>
+    <span class="route-arrow">→</span>
+    <span class="route-dot"><span class="name">广州</span></span>
+  </div>
+</div>
+
+<!-- Nav — ordered by priority -->
+<nav class="nav" id="mainNav">
+  <a href="#overview" class="active">行程总览</a>
+  <a href="#itinerary">每日行程</a>
+  <a href="#prep">出发准备</a>
+  <a href="#outfits">服装计划</a>
+  <a href="#transport">交通费用</a>
+  <a href="#visa">签证</a>
+  <a href="#flights">机票</a>
+  <a href="#hotels">酒店快递</a>
+</nav>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P0: 行程总览                        -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="overview">
+  <h2 class="section-title"><span class="emoji">🗂️</span> 行程总览 <span class="section-badge badge-p0">P0</span></h2>
+  <div class="card">
+    <div class="card-title">路线概览</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>地区</th><th>景点</th><th>备注</th><th>住宿</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>大阪</td><td>梅田Hep five摩天轮、心斋桥、大阪城公园、通天阁</td><td>预计中午到达</td><td>大阪</td></tr>
+          <tr><td>京都（一日游）</td><td>伏见稻荷大社、东福寺、清水寺、八坂神社、花间小路、鸭川</td><td>—</td><td>大阪</td></tr>
+          <tr><td>大阪 USJ</td><td colspan="2">环球影城一日游</td><td>大阪</td></tr>
+          <tr><td>东京</td><td>明治神宫、东京塔、m78商店（东京站一番街）、六本木观景台</td><td>—</td><td>东京</td></tr>
+          <tr><td>东京</td><td>浅草寺、秋叶原、银座、晴空塔、上野公园</td><td>下午回程</td><td>东京</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">费用预估</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th>预估价格</th></tr></thead>
+        <tbody>
+          <tr><td>签证（五年多次）</td><td>¥1,600+</td></tr>
+          <tr><td>机票</td><td>~¥3,000</td></tr>
+          <tr><td>住宿（5晚）</td><td>~¥2,000</td></tr>
+          <tr><td>交通卡</td><td>~¥1,000</td></tr>
+          <tr><td>电话卡</td><td>提前购买</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P0: 每日行程                        -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="itinerary">
+  <h2 class="section-title"><span class="emoji">📆</span> 每日行程 <span class="section-badge badge-p0">P0</span></h2>
+
+  <!-- Day 1: 11.25 -->
+  <div class="day-block">
+    <div class="day-header">11.25（周三）</div>
+    <div class="day-subtitle">广州 → 大阪，下午到达，住相铁FRESA INN北滨</div>
+    <div class="map-label">🗺️ 路线导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 关西机场 → 相铁FRESA INN北滨</a>
+    </div>
+    <div class="map-label">🗺️ 景点导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/search/通天阁+大阪" target="_blank"><span class="ml">📍</span> 通天阁</a>
+      <a class="map-link" href="https://www.google.com/maps/search/大阪城公园" target="_blank"><span class="ml">📍</span> 大阪城公园</a>
+      <a class="map-link" href="https://www.google.com/maps/search/Hep+Five+摩天轮+梅田+大阪" target="_blank"><span class="ml">📍</span> 梅田Hep five摩天轮</a>
+      <a class="map-link" href="https://www.google.com/maps/search/阪急三番街北馆+B1楼+梅田+大阪" target="_blank"><span class="ml">📍</span> 梅田M78商店（阪急三番街北馆B1楼）</a>
+    </div>
+    <ul class="day-activities">
+      <li>抵达大阪，前往梅田住宿（相铁FRESA INN北滨）</li>
+      <li>通天阁（外观 + 内部参观）</li>
+      <li>大阪城公园（天守阁要门票，逛公园免费）</li>
+      <li>梅田 Hep five 摩天轮看落日（¥1,000，大阪周游卡免费）</li>
+      <li>梅田 M78 商店（阪急三番街北馆 B1 楼）</li>
+    </ul>
+    <div class="day-note">住宿 ¥300~400/晚 · 来回机票预计 ¥3,000</div>
+  </div>
+
+  <!-- Day 2: 11.26 -->
+  <div class="day-block">
+    <div class="day-header">11.26（周四）</div>
+    <div class="day-subtitle">梅田 → 京都一日游 → 梅田</div>
+    <div class="map-label">🗺️ 路线导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 相铁FRESA INN北滨 → 伏见稻荷大社</a>
+    </div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 伏见稻荷大社 → 四条大桥</a>
+    </div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 清水寺 → 梅田</a>
+    </div>
+    <div class="map-label">🗺️ 景点导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/search/花见小路+京都" target="_blank"><span class="ml">📍</span> 花间小路</a>
+      <a class="map-link" href="https://www.google.com/maps/search/八坂神社+京都" target="_blank"><span class="ml">📍</span> 八坂神社</a>
+      <a class="map-link" href="https://www.google.com/maps/search/三年坂+二年坂+京都" target="_blank"><span class="ml">📍</span> 三年坂/二年坂</a>
+      <a class="map-link" href="https://www.google.com/maps/search/清水寺+京都" target="_blank"><span class="ml">📍</span> 清水寺</a>
+    </div>
+    <ul class="day-activities">
+      <li>伏见稻荷大社（看鸟居）</li>
+      <li>四条大桥 → 花间小路 → 八坂神社 → 三年坂/二年坂 → 清水寺</li>
+      <li>清水寺 ¥500，其他免费</li>
+      <li>和服店推荐：冈本、京都 kirari（便宜）、MOCOMOCO、OOKINI、一番星</li>
+      <li>京都 → 梅田，心斋桥购物（卡普空商店 + M78 商店同一层）</li>
+    </ul>
+    <div class="day-note">住宿 ¥300~400/晚 · 和服体验可选</div>
+  </div>
+
+  <!-- Day 3: 11.27 -->
+  <div class="day-block">
+    <div class="day-header">11.27（周五）</div>
+    <div class="day-subtitle">大阪 → USJ 环球影城一日游</div>
+    <div class="map-label">🗺️ 路线导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 相铁FRESA INN北滨 → USJ</a>
+    </div>
+    <ul class="day-activities">
+      <li>USJ 全天游玩</li>
+      <li>抽生化危机鬼屋整理券</li>
+      <li>门票 ¥9,000（2026年9月调价后）</li>
+      <li>购票：<a href="https://www.usjticketing.com/" target="_blank" style="color:var(--accent3);">usjticketing.com</a></li>
+    </ul>
+    <div class="day-note">住宿 ¥300~400/晚 · 建议穿校园风</div>
+  </div>
+
+  <!-- Day 4: 11.28 -->
+  <div class="day-block">
+    <div class="day-header">11.28（周六）</div>
+    <div class="day-subtitle">大阪奥特曼舞台剧 + 转场东京</div>
+    <div class="map-label">🗺️ 路线导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 相铁FRESA INN北滨 → 門真市民文化会館</a>
+    </div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/dir/%E9%96%A2%E8%A5%BF%E5%9C%8B%E9%9A%9B%E7%A9%BA%E6%B8%AF%E3%80%81%E3%80%92549-0001+%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B3%89%E4%BD%90%E9%87%8E%E5%B8%82%E6%B3%89%E5%B7%9E%E7%A9%BA%E6%B8%AF%E5%8C%971%E7%95%AA%E5%9C%B0/%E7%9B%B8%E9%89%84%E3%83%95%E3%83%AC%E3%83%83%E3%82%B5%E3%82%A4%E3%83%B3+%E5%8C%97%E6%B5%9C%E3%80%81%E3%80%92541-0043+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E9%AB%98%E9%BA%97%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span class="ml">📍</span> 門真市民文化会館 → 大阪站（新干线）</a>
+    </div>
+    <ul class="day-activities">
+      <li>《The live ~羁绊的故事》奥特曼舞台剧 大阪场</li>
+      <li>场地：門真市民文化会館（大阪府門真市末広町29番1号）</li>
+      <li>【1回目】開場 10:15 / 開演 11:00</li>
+      <li>【2回目】開場 14:15 / 開演 15:00</li>
+      <li>购票：<a href="https://thelive.m-78.jp/tsumugu/stage/ticket/osaka.php" target="_blank" style="color:var(--accent3);">thelive.m-78.jp</a></li>
+      <li>预售：2026.8.1 – 8.17 | 销售：2026.8.28 10:00起</li>
+      <li>门票 ¥3,800 + 手续费 ¥300（信用卡可免）+ 取票费 ¥170</li>
+      <li>代购：<a href="http://cncn.jp/thelive_ok/" target="_blank" style="color:var(--accent3);">アオイチケット</a></li>
+      <li>大阪 → 横滨 → 东京</li>
+    </ul>
+    <div class="day-note">建议穿奥特曼元素 + 舒适服装</div>
+  </div>
+
+  <!-- Day 5: 11.29 -->
+  <div class="day-block">
+    <div class="day-header">11.29（周日）</div>
+    <div class="day-subtitle">东京一日游</div>
+    <div class="map-label">🗺️ 景点导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/search/东京晴空塔" target="_blank"><span class="ml">📍</span> 晴空塔</a>
+      <a class="map-link" href="https://www.google.com/maps/search/浅草寺+东京" target="_blank"><span class="ml">📍</span> 浅草寺</a>
+      <a class="map-link" href="https://www.google.com/maps/search/上野公园+东京" target="_blank"><span class="ml">📍</span> 上野公园</a>
+      <a class="map-link" href="https://www.google.com/maps/search/秋叶原+东京" target="_blank"><span class="ml">📍</span> 秋叶原</a>
+      <a class="map-link" href="https://www.google.com/maps/search/池袋+东京" target="_blank"><span class="ml">📍</span> 池袋</a>
+      <a class="map-link" href="https://www.google.com/maps/search/M78商店+东京站一番街" target="_blank"><span class="ml">📍</span> 东京站M78商店（东京站一番街）</a>
+    </div>
+    <ul class="day-activities">
+      <li>晴空塔（太贵，考虑不进去）</li>
+      <li>浅草寺（免费）</li>
+      <li>上野公园（免费）</li>
+      <li>秋叶原 / 池袋</li>
+      <li>东京站 m78 商店（东京站一番街）</li>
+    </ul>
+    <div class="day-note">住宿东京</div>
+  </div>
+
+  <!-- Day 6: 11.30 -->
+  <div class="day-block">
+    <div class="day-header">11.30（周一）</div>
+    <div class="day-subtitle">东京涩谷 + 台场 + 六本木</div>
+    <div class="map-label">🗺️ 景点导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/search/台场电讯大厦+东京" target="_blank"><span class="ml">📍</span> 台场电讯大厦</a>
+      <a class="map-link" href="https://www.google.com/maps/search/渋谷BEAM+東京都渋谷区宇田川町31-2" target="_blank"><span class="ml">📍</span> 渋谷BEAM 4F（生化危机展）</a>
+      <a class="map-link" href="https://www.google.com/maps/search/六本木新城展望台+东京" target="_blank"><span class="ml">📍</span> 六本木观景台</a>
+      <a class="map-link" href="https://www.google.com/maps/search/东京铁塔" target="_blank"><span class="ml">📍</span> 东京铁塔</a>
+    </div>
+    <ul class="day-activities">
+      <li>台场电讯大厦（TPC 拍摄地）</li>
+      <li>涩谷 — 生化危机 30 周年纪念展
+        <ul style="margin-top:.4rem;font-size:.83rem;color:var(--text2);">
+          <li>平日 10:00-21:00（最終入場 19:59）</li>
+          <li>土日祝 09:00-21:00（最終入場 19:59）</li>
+          <li>東京都渋谷区宇田川町31-2 渋谷BEAM 4F</li>
+          <li>门票：工作日¥3,000 / 周末¥3,300</li>
+          <li><a href="https://t.pia.jp/pia/events/bhre30th/" target="_blank" style="color:var(--accent3);">购票链接</a></li>
+        </ul>
+      </li>
+      <li>六本木观景台（日落前1h登顶，可以看白天、黄昏和夜景 ¥1,800）</li>
+      <li>东京铁塔</li>
+    </ul>
+    <div class="day-note">住宿东京 · 建议穿裤子方便行动</div>
+  </div>
+
+  <!-- Day 7: 12.1 -->
+  <div class="day-block">
+    <div class="day-header">12.1（周二）</div>
+    <div class="day-subtitle">东京 → 广州，回程</div>
+    <div class="map-label">🗺️ 景点导航</div>
+    <div class="map-group">
+      <a class="map-link" href="https://www.google.com/maps/search/カプコンストア+渋谷SKY+东京" target="_blank"><span class="ml">📍</span> 卡普空商店（涩谷SKY）</a>
+      <a class="map-link" href="https://www.google.com/maps/search/カプコンストア+池袋+东京" target="_blank"><span class="ml">📍</span> 卡普空商店（池袋）</a>
+      <a class="map-link" href="https://www.google.com/maps/search/M78+Shop+东京站一番街" target="_blank"><span class="ml">📍</span> M78商店（东京站）</a>
+      <a class="map-link" href="https://www.google.com/maps/search/M78+Shop+东京晴空塔" target="_blank"><span class="ml">📍</span> M78商店（晴空塔）</a>
+    </div>
+    <ul class="day-activities">
+      <li>凌晨航班回家</li>
+      <li>两家卡普空商店：涩谷SKY、池袋</li>
+      <li>两家 M78：东京站、晴空塔</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P1: 出发准备                        -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="prep">
+  <h2 class="section-title"><span class="emoji">🎒</span> 出发准备 <span class="section-badge badge-p1">P1</span></h2>
+  <div class="checklist-grid">
+    <div class="checklist-card">
+      <h4>📋 签证</h4>
+      <p>¥1,600+（五年多次）</p>
+    </div>
+    <div class="checklist-card">
+      <h4>✈️ 机票</h4>
+      <p>~¥3,000</p>
+    </div>
+    <div class="checklist-card">
+      <h4>🏨 住宿</h4>
+      <p>~¥2,000（5晚）</p>
+    </div>
+    <div class="checklist-card">
+      <h4>📱 电话卡</h4>
+      <p>提前一周购买</p>
+    </div>
+    <div class="checklist-card">
+      <h4>🚃 交通卡</h4>
+      <p>预估 ¥1,000，到当地再开通</p>
+    </div>
+    <div class="checklist-card">
+      <h4>📷 租相机</h4>
+      <p>胶片相机，可以去买胶片</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1.5rem;">
+    <div class="card-title">📸 打卡照片参考（来自片段：36集）</div>
+    <ul class="req-list">
+      <li>1:44 — 通天阁外</li>
+      <li>2:26 — 通天阁内</li>
+      <li>16:22 — 大阪城公园，天守阁远处</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P1: 服装计划                        -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="outfits">
+  <h2 class="section-title"><span class="emoji">👗</span> 服装计划 <span class="section-badge badge-p1">P1</span></h2>
+  <div class="card" style="margin-bottom:1.5rem;">
+    <div class="card-title">每日穿搭</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日期</th><th>行程</th><th>穿搭要求</th></tr></thead>
+        <tbody>
+          <tr><td>25日</td><td>大阪城公园、梅田摩天轮</td><td>都行</td></tr>
+          <tr><td>26日</td><td>京都</td><td>尝试和服，穿舒适衣服</td></tr>
+          <tr><td>27日</td><td>USJ</td><td>校园风</td></tr>
+          <tr><td>28日</td><td>奥特曼舞台剧 + 转场东京</td><td>奥特曼元素、舒适</td></tr>
+          <tr><td>29日</td><td>浅草寺、上野公园、晴空塔</td><td>都行</td></tr>
+          <tr><td>30日</td><td>涩谷、东京塔、台场</td><td>裤子就行</td></tr>
+          <tr><td>1日</td><td>凌晨航班回家</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card-title" style="margin-bottom:1rem;">穿搭选项参考</div>
+  <div class="outfit-grid">
+    <div class="outfit-card">
+      <div class="outfit-num">1</div>
+      <div class="outfit-desc">深棕色长连衣裙<br>（要买夹子修身，不然显胖）</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">2</div>
+      <div class="outfit-desc">蓝色打底 + 蓝色格子连衣裙</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">3</div>
+      <div class="outfit-desc">浅蓝色圆领 + 灰色软糯半身裙<br>（搭米白色内衬）</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">4</div>
+      <div class="outfit-desc">奥特曼短袖上衣<br>（穿灰色打底）+ 白色厚裤子</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">5</div>
+      <div class="outfit-desc">蓝色假两件毛衣 + 灰色西装半身裙</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">6</div>
+      <div class="outfit-desc">灰色假两件厚衣服 + 白色厚裤子</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">7</div>
+      <div class="outfit-desc">+ 白色/蓝色半身裙</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-num">8</div>
+      <div class="outfit-desc">白色衬衣 + 白色马甲 + 黑色短裙</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1.5rem;">
+    <div class="card-title">🧥 外套清单</div>
+    <ul class="req-list">
+      <li>棕色大衣</li>
+      <li>冲锋衣 / 羽绒服</li>
+      <li>粉色围巾</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P1: 交通费用                        -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="transport">
+  <h2 class="section-title"><span class="emoji">🚃</span> 交通费用 <span class="section-badge badge-p1">P1</span></h2>
+  <div class="card">
+    <div class="card-title">各段交通费用（日元）</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日期</th><th>出发地</th><th>到达地</th><th>费用/单次</th></tr></thead>
+        <tbody>
+          <tr><td>11.25</td><td>大阪机场</td><td>梅田站</td><td>¥2,410（或¥1,210）</td></tr>
+          <tr><td>11.25</td><td>梅田</td><td>大阪普遍景点</td><td>¥240</td></tr>
+          <tr><td>11.26</td><td>大阪梅田</td><td>京都站</td><td>¥580</td></tr>
+          <tr><td>11.26</td><td>京都站</td><td>伏见稻荷</td><td>¥320</td></tr>
+          <tr><td>11.26</td><td>伏见稻荷</td><td>四条</td><td>¥230</td></tr>
+          <tr><td>11.26</td><td>清水寺</td><td>心斋桥</td><td>¥2,190（或¥1,320✓）</td></tr>
+          <tr><td>11.26</td><td>心斋桥</td><td>梅田</td><td>¥230</td></tr>
+          <tr><td>11.27</td><td>梅田</td><td>USJ</td><td>¥190（30min）</td></tr>
+          <tr><td>11.28</td><td>大阪</td><td>横滨</td><td>¥14,000</td></tr>
+          <tr><td>11.28</td><td>横滨</td><td>横滨市区</td><td>¥230</td></tr>
+          <tr><td>11.28</td><td>横滨</td><td>东京站</td><td>¥530</td></tr>
+          <tr><td>11.28</td><td>东京站</td><td>人形町</td><td>¥180</td></tr>
+          <tr><td>11.28</td><td>人形町</td><td>涩谷</td><td>¥210</td></tr>
+          <tr><td>11.28</td><td>人形町</td><td>大部分景点</td><td>¥240</td></tr>
+          <tr><td>12.1</td><td>东京站</td><td>羽田机场</td><td>¥590</td></tr>
+          <tr><td>12.1</td><td>东京站</td><td>成田机场</td><td>¥3,000（或¥1,500）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--accent);font-weight:700;font-size:.95rem;">合计：¥27,980 ≈ ¥1,200 RMB</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P2: 签证（补充参考）                -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="visa">
+  <h2 class="section-title"><span class="emoji">📋</span> 签证 — 五年多次签</h2>
+  <div class="card">
+    <div class="card-title">基本材料（每人必须）</div>
+    <ul class="req-list">
+      <li>护照原件</li>
+      <li>户口本复印原件</li>
+      <li>身份证复印件</li>
+      <li>赴日申请表</li>
+      <li>2张白底照片（4.5×3.5cm）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">主申请人材料</div>
+    <ul class="req-list">
+      <li>近三年社保</li>
+      <li>房产证明：市值200w以上房产证，彩打（房管局查册表证明无抵押无贷款）</li>
+      <li>近6个月银行流水：每笔交易不少于1万元，最后一笔余额不少于5万元，彩打</li>
+      <li>个人信息处理同意书</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">附申请人材料</div>
+    <ul class="req-list">
+      <li>子女证明：出生证复印件/同一户口</li>
+      <li>单次：基本材料 + 银行存款证明10w定期半年以上</li>
+      <li>学生：护照原件、白底照片、签证申请表、户口本彩色复印、身份证正反面复印、学信网报告</li>
+      <li>照片、身份证、学信网可提交电子版</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P2: 机票（补充参考）                -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="flights">
+  <h2 class="section-title"><span class="emoji">✈️</span> 机票（补充参考）</h2>
+
+  <div class="card">
+    <div class="card-title">香港 → 大阪</div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="hk2osaka">所有</button>
+      <button class="tab-btn" data-tab="hk2osaka-feizhu">飞猪</button>
+      <button class="tab-btn" data-tab="hk2osaka-ctrip">携程</button>
+      <button class="tab-btn" data-tab="hk2osaka-qunar">去哪儿</button>
+    </div>
+    <div class="tab-panel active" id="hk2osaka">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,165</span><span class="app">托运¥1,439 · 飞猪</span></div>
+        <div class="flight-item"><span class="time">11:50-16:25</span><span class="price">¥1,052</span><span class="app">托运¥1,326 · 飞猪</span></div>
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,139</span><span class="app">托运¥1,413 · 携程</span></div>
+        <div class="flight-item"><span class="time">11:50-16:25</span><span class="price">¥1,101</span><span class="app">托运¥1,370 · 携程</span></div>
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,126</span><span class="app">托运¥1,410 · 去哪儿</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="hk2osaka-feizhu">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,165</span><span class="app">托运¥1,439</span></div>
+        <div class="flight-item"><span class="time">11:50-16:25</span><span class="price">¥1,052</span><span class="app">托运¥1,326</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="hk2osaka-ctrip">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,139</span><span class="app">托运¥1,413</span></div>
+        <div class="flight-item"><span class="time">11:50-16:25</span><span class="price">¥1,101</span><span class="app">托运¥1,370</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="hk2osaka-qunar">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">08:30-12:55 / 09:45-14:20</span><span class="price">¥1,126</span><span class="app">托运¥1,410</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">东京（成田）→ 香港</div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tokyo2hk">所有</button>
+      <button class="tab-btn" data-tab="tokyo2hk-feizhu">飞猪</button>
+      <button class="tab-btn" data-tab="tokyo2hk-ctrip">携程</button>
+      <button class="tab-btn" data-tab="tokyo2hk-qunar">去哪儿</button>
+    </div>
+    <div class="tab-panel active" id="tokyo2hk">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,144</span><span class="app">托运¥1,424 · 飞猪</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,132</span><span class="app">托运¥1,415 · 飞猪</span></div>
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,057</span><span class="app">托运¥1,340 · 飞猪</span></div>
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,160</span><span class="app">托运¥1,452 · 携程</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,147</span><span class="app">托运¥1,443 · 携程</span></div>
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,072</span><span class="app">托运¥1,367 · 携程</span></div>
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,006</span><span class="app">托运¥1,291 · 去哪儿</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,140</span><span class="app">托运¥1,411 · 去哪儿</span></div>
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,130</span><span class="app">托运¥1,426 · 去哪儿</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tokyo2hk-feizhu">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,144</span><span class="app">托运¥1,424</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,132</span><span class="app">托运¥1,415</span></div>
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,057</span><span class="app">托运¥1,340</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tokyo2hk-ctrip">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,160</span><span class="app">托运¥1,452</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,147</span><span class="app">托运¥1,443</span></div>
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,072</span><span class="app">托运¥1,367</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tokyo2hk-qunar">
+      <div class="flight-options">
+        <div class="flight-item"><span class="time">08:15-12:40</span><span class="price">¥1,006</span><span class="app">托运¥1,291</span></div>
+        <div class="flight-item"><span class="time">06:35-10:50 / 01:55-06:10</span><span class="price">¥1,140</span><span class="app">托运¥1,411</span></div>
+        <div class="flight-item"><span class="time">15:25-19:50 / 16:55-21:20</span><span class="price">¥1,130</span><span class="app">托运¥1,426</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">广州 → 香港（交通）</div>
+    <div class="card" style="margin-top:.75rem;">
+      <div class="card-title">方案一：永东直通巴士</div>
+      <ul class="req-list">
+        <li>正佳 → 香港机场 ¥180（闲鱼¥110）</li>
+        <li>正佳 → 东荟城（香港机场前一站）¥110 + 3HKD巴士（15min）</li>
+        <li>最晚 06:55 班次，可蹲抖音便宜票</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:.75rem;">
+      <div class="card-title">方案二：高铁 → 港珠澳大桥</div>
+      <ul class="req-list">
+        <li>09:00 出发 → 22:07 广州南 → 22:30 珠海站</li>
+        <li>打车 10min 到港珠澳大桥公路口岸（上送客平台靠右）→ 出关</li>
+        <li>00:00 坐金巴跨港珠澳大桥 40min → 入关</li>
+        <li>01:00 坐 B4 巴士 10min 到 T2（最早 01:10 到 T2）</li>
+        <li>金巴六点前票通用，24:00 后 30 分钟一班</li>
+        <li>费用：高铁¥70 + 金巴¥63 + B4 接驳车 ¥10</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:.75rem;">
+      <div class="card-title">方案三：高铁 → 深圳皇岗</div>
+      <ul class="req-list">
+        <li>09:00 出发 → 22:05-23:21 广州东 → 深圳北</li>
+        <li>打车 30min 到皇岗口岸 → 00:30 坐巴士从口岸到机场 1h</li>
+        <li>费用：高铁¥70 + 打车¥25 + 永东¥80</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- P2: 酒店快递（补充参考）            -->
+<!-- ═══════════════════════════════════ -->
+<section class="section" id="hotels">
+  <h2 class="section-title"><span class="emoji">📦</span> 酒店快递</h2>
+  <div class="hotel-card">
+    <div class="hotel-name">N+东浅草酒店（东京2晚）</div>
+    <div class="hotel-email">📧 nplus.bdc@gmail.com</div>
+    <div class="hotel-info">注明酒店名称、酒店地址及入住客人姓名。仅入住期间送达，提前不收。</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">大阪东急REI酒店</div>
+    <div class="hotel-email">📧 osaka-r@tokyuhotels.co.jp</div>
+    <div class="hotel-info">〒５３０－００２７ 大阪市北区堂山町2-1</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">哈顿北梅田酒店（¥1,086/3晚）</div>
+    <div class="hotel-email">📧 kit@hearton.co.jp</div>
+    <div class="hotel-info">姓名（预订时使用的姓名）+ 入住日期<br>〒531-0072 大阪市北区豊崎3-12-10<br>ハートンホテル北梅田 宿泊課<br>最多存储一周</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">丽嘉PLACE肥后酒店（¥1,049/3晚）</div>
+    <div class="hotel-email">📧 place@rihga.co.jp</div>
+    <div class="hotel-info">地址：550-0002 1-13-10 Edobori, Nishi-ku, Osaka City RIHGA Place Higobashi<br>TEL: 06-6447-1122<br>表明入住日期和客人姓名，前一天送达</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">相铁FRESA INN北滨（¥1,215/3晚）</div>
+    <div class="hotel-email">📧 fresa_kitahama@sotetsu-group.jp</div>
+    <div class="hotel-info">541-0043 大阪府大阪市中央区高麗橋2-4-10<br>姓名必须用英文填写，与预订一致 + 入住日期<br>1周内可接收</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">Four Points Flex by Sheraton大阪北滨</div>
+    <div class="hotel-email">📧 kitahama@kphm.co.jp</div>
+  </div>
+  <div class="hotel-card">
+    <div class="hotel-name">BRACKETS HOTEL 大阪本町（¥1,002/3晚）</div>
+    <div class="hotel-email">📧 brackets-oh@solarehotels.com</div>
+    <div class="hotel-info">注明入住日期和姓名<br>〒541-0054 大阪府大阪市中央区南本町４丁目５−１８<br>TEL: 06-6563-7355<br>入住前一天或当天送达</div>
+  </div>
+</section>
+
+<footer class="footer">
+  日本Plan · 关西之旅 2026.11.25 – 12.01
+</footer>
+
+<script>
+// Nav active state
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('.section');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top <= 150) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    const parent = btn.closest('.card');
+    if (!parent) return;
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(tab);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+// Smooth scroll for nav
+navLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
